@@ -9,8 +9,6 @@ import sys
 sys.path.insert(0, path)
 
 import mnist_training_binary
-from mnist_training_binary import show
-import dominion
 from dominion import getGAlpha
 
 
