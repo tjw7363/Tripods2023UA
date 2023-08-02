@@ -397,7 +397,6 @@ def generateHomomorphisms(tree, treeNum, homomNum, n):
 
 
 
-
 """
 #CODE THAT RUNS OR TESTS EXISTING FUNCTIONS:
 
@@ -406,7 +405,7 @@ def generateHomomorphisms(tree, treeNum, homomNum, n):
 labels={1, 2, 3, 4, 5}
 L=random_tree(labels)
 print(L)
-treeNumber=3
+treeNumber=0
 L.makeTreeFile(treeNumber)
 #print(readTree("Tree"+str(treeNumber)+"\Tree"+str(treeNumber)+".txt"))
 generateDominions(L, labels, treeNumber, 20)
@@ -456,7 +455,7 @@ print(applyDominion(dominion, weights))         #row 2, column 1 (indexed from 0
 
 
 file.close()
-"""
+
 
 #Note: every 3x3 dominion with label set size 3 had at least one 3 in in - is this a feature of the program or just coincidence? - also random trees with three labels kept generating same tree
 
@@ -464,3 +463,4 @@ file.close()
     #figure out a better way to get n as an input in _func
 
 #Remember that dominions need to be large enough to work with any nxn image (eg for 3x3 images dominion should be 10x10)
+"""

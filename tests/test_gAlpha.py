@@ -2,8 +2,12 @@
 Check gAlpha with images from the MNIST set
 """
 
+from pathlib import Path
+
+path = str(Path(__file__).parent.parent.absolute() / "src")
 import sys
-sys.path.insert(0, r"C:\Users\2019r\vscode-workspace\395W\Tripods2021UA\src")
+sys.path.insert(0, path)
+
 import mnist_training_binary
 from mnist_training_binary import show
 import dominion

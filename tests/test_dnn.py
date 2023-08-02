@@ -3,8 +3,12 @@ Discrete neural net test
 """
 
 
+from pathlib import Path
+
+path = str(Path(__file__).parent.parent.absolute() / "src")
 import sys
-sys.path.insert(0, r"C:\Users\2019r\vscode-workspace\395W\Tripods2021UA\src")
+sys.path.insert(0, path)
+
 from discrete_neural_net import Neuron, Layer, NeuralNet
 import operations
 from itertools import product
@@ -28,13 +32,15 @@ layer2 = Layer([neuron2])
 net = NeuralNet([layer0, layer1, layer2])
 
 # We can feed values forward and display the result.
-print(net.feed_forward({'x0': 0, 'x1': 1, 'x2': 2}))
+print(net.feed_forward({'x0': 2, 'x1': 5, 'x2': 23}))
 print()
 
 # We create a training set in an effort to teach our net how to compute (x0+x1)*(x1+x2).
 # We'll do this modulo `order`.
 training_pairs = [({'x0': x[0], 'x1': x[1], 'x2': x[2]}, (((x[0] + x[1]) * (x[1] + x[2])) % order,))
                   for x in product(range(order // 2 + 1), repeat=3)]
+
+#print(training_pairs)
 
 # We can check out empirical loss with respect to this training set.
 # Our loss function will just be the 0-1 loss.
@@ -61,4 +67,4 @@ def neighbor_func(op):
 
 # We can now begin training.
 # Usually it will only take a few training steps to learn to replace the random operation with addition.
-net.train(training_pairs, neighbor_func, 5, report_loss=True)
+net.train(training_pairs, neighbor_func, 4, report_loss=True)
